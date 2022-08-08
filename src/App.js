@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <h1> Hi I am react app</h1>
       <Person/>
+      <Person/>
     </div>
   );
 }
