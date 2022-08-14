@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
-      <button onClick={switchNameHandler.bind(this,'Maximiliano')}>Switch name</button>
+      <button onClick={() => switchNameHandler('Maximiliano')}>Switch name</button>
       <Person
         name={personState.persons[0].name}
         age={personState.persons[0].age}
@@ -37,7 +37,7 @@ function App() {
       <Person
         name={personState.persons[1].name}
         age={personState.persons[1].age}
-        click={switchNameHandler.bind(this, 'Max!')}
+        click={() => switchNameHandler('Max!')}
       />
       <Person
         name={personState.persons[2].name}
