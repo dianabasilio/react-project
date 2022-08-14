@@ -26,6 +26,16 @@ function App() {
     });
   };
 
+  const nameChangeHandler = (event) =>{
+    setPersonState({
+      persons: [
+        { name: "Max", age: 28 },
+        { name: event.target.value, age: 20 },
+        { name: "Sophie", age: 17 },
+      ]
+    });
+  }
+
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two. 
   return (
     <div className="App">
@@ -39,6 +49,7 @@ function App() {
         name={personState.persons[1].name}
         age={personState.persons[1].age}
         click={() => switchNameHandler('Max!')}
+        changed={nameChangeHandler}
       />
       <Person
         name={personState.persons[2].name}

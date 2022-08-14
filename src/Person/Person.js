@@ -11,6 +11,7 @@ const Person = (props) =>{
         <p>
             {props.children}
         </p>
+        <input type="text" onChange={props.changed} />
       </div>
     );
 }
