@@ -1,13 +1,23 @@
-import './App.css';
-import Person from './Person/Person'
+import "./App.css";
+import Person from "./Person/Person";
 
 function App() {
+  const state = {
+    persons: [
+      { name: "Max", age: 28 },
+      { name: "Manu", age: 70 },
+      { name: "Soph", age: 17 },
+    ],
+  };
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
-      <Person name="Max" age={28} />
-      <Person name="Manuel" age={30} />
-      <Person name="Soph" age={17}> My hobbies: Racing</Person>
+      <button>Switch name</button>
+      <Person name={state.persons[0].name} age={state.persons[0].age} />
+      <Person name={state.persons[1].name} age={state.persons[1].age} />
+      <Person name={state.persons[2].name} age={state.persons[2].age}>
+        My hobbies: Racing
+      </Person>
     </div>
   );
 }
