@@ -36,11 +36,18 @@ function App() {
     });
   }
 
+  const style = {
+    backgroundColor: 'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '8px'
+  }
+
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two. 
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
-      <button onClick={() => switchNameHandler('Maximiliano')}>Switch name</button>
+      <button style={style} onClick={() => switchNameHandler('Maximiliano')}>Switch name</button>
       <Person
         name={personState.persons[0].name}
         age={personState.persons[0].age}
