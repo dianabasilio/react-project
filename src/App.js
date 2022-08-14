@@ -37,6 +37,7 @@ function App() {
       <Person
         name={personState.persons[1].name}
         age={personState.persons[1].age}
+        click={switchNameHandler}
       />
       <Person
         name={personState.persons[2].name}

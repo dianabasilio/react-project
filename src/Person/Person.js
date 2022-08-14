@@ -5,7 +5,7 @@ const Person = (props) =>{
     //to import react
     return (
       <div>
-        <p>
+        <p onClick={props.click}>
           I'm {props.name} and I am years {props.age} old!
         </p>
         <p>
