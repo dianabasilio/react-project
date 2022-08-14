@@ -15,11 +15,11 @@ function App() {
 
   console.log(otherState, personState);
 
-  const switchNameHandler = () => {
+  const switchNameHandler = (newName) => {
     //Do not do this!!! : state.persons[0].name = 'Maximun';
     setPersonState({
       persons: [
-        { name: "Maximiliano", age: 28 },
+        { name: newName, age: 28 },
         { name: "Manuel", age: 20 },
         { name: "Sophie", age: 17 },
       ]
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
-      <button onClick={switchNameHandler}>Switch name</button>
+      <button onClick={switchNameHandler.bind(this,'Maximiliano')}>Switch name</button>
       <Person
         name={personState.persons[0].name}
         age={personState.persons[0].age}
@@ -37,7 +37,7 @@ function App() {
       <Person
         name={personState.persons[1].name}
         age={personState.persons[1].age}
-        click={switchNameHandler}
+        click={switchNameHandler.bind(this, 'Max!')}
       />
       <Person
         name={personState.persons[2].name}
