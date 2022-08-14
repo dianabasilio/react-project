@@ -26,6 +26,7 @@ function App() {
     });
   };
 
+  //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two. 
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
