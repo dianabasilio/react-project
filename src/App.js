@@ -11,8 +11,9 @@ function App() {
   };
 
   const switchNameHandler = () =>{
-    console.log("clicked")
+    //Do not do this!!! : state.persons[0].name = 'Maximun';
   }
+
   return (
     <div className="App">
       <h1> Hi I am react app</h1>
