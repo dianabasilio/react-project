@@ -20,7 +20,7 @@ function App() {
         { name: "Manuel", age: 20 },
         { name: "Sophie", age: 17 },
       ],
-      otherState: "some other value",
+      otherState: personState.otherState,
     });
   };
 
