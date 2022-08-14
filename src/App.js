@@ -8,9 +8,12 @@ function App() {
       { name: "Max", age: 28 },
       { name: "Manu", age: 70 },
       { name: "Soph", age: 17 },
-    ],
-    otherState: "some other value",
+    ]
   });
+
+  const [otherState, setOtherState] = useState('some other value');
+
+  console.log(otherState, personState);
 
   const switchNameHandler = () => {
     //Do not do this!!! : state.persons[0].name = 'Maximun';
@@ -19,8 +22,7 @@ function App() {
         { name: "Maximiliano", age: 28 },
         { name: "Manuel", age: 20 },
         { name: "Sophie", age: 17 },
-      ],
-      otherState: personState.otherState,
+      ]
     });
   };
 
