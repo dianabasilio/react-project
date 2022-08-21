@@ -4,7 +4,7 @@ import Person from "./Person/Person";
 
 function App() {
   const [personState, setPersonState] = useState({
-    persons: [
+    people: [
       { name: "Max", age: 28 },
       { name: "Manu", age: 70 },
       { name: "Soph", age: 17 },
@@ -14,20 +14,20 @@ function App() {
   const [showPerson, setShowPerson] = useState(false);
 
   const togglePersonsHandler = (newName) => {
-    //Do not do this!!! : state.persons[0].name = 'Maximun';
+    //Do not do this!!! : state.people[0].name = 'Maximun';
     setPersonState({
-      persons: [
+      people: [
         { name: newName, age: 28 },
         { name: "Manuel", age: 20 },
         { name: "Sophie", age: 17 },
       ],
     });
-    setShowPerson(true);
+    setShowPerson(!showPerson);
   };
 
   const nameChangeHandler = (event) => {
     setPersonState({
-      persons: [
+      people: [
         { name: "Max", age: 28 },
         { name: event.target.value, age: 20 },
         { name: "Sophie", age: 17 },
@@ -43,6 +43,31 @@ function App() {
     cursor: "pointer",
   };
 
+  let people = null;
+
+  if (showPerson) {
+    people = (
+      <div>
+        <Person
+          name={personState.people[0].name}
+          age={personState.people[0].age}
+        />
+        <Person
+          name={personState.people[1].name}
+          age={personState.people[1].age}
+          click={() => togglePersonsHandler("Max!")}
+          changed={nameChangeHandler}
+        />
+        <Person
+          name={personState.people[2].name}
+          age={personState.people[2].age}
+        >
+          My hobbies: Racing
+        </Person>
+      </div>
+    );
+  }
+
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two.
   return (
     <div className="App">
@@ -50,26 +75,7 @@ function App() {
       <button style={style} onClick={() => togglePersonsHandler("Maximiliano")}>
         Switch name
       </button>
-      {showPerson && (
-        <div>
-          <Person
-            name={personState.persons[0].name}
-            age={personState.persons[0].age}
-          />
-          <Person
-            name={personState.persons[1].name}
-            age={personState.persons[1].age}
-            click={() => togglePersonsHandler("Max!")}
-            changed={nameChangeHandler}
-          />
-          <Person
-            name={personState.persons[2].name}
-            age={personState.persons[2].age}
-          >
-            My hobbies: Racing
-          </Person>
-        </div>
-      )}
+      {people}
     </div>
   );
 }
