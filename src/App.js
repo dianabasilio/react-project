@@ -11,10 +11,6 @@ function App() {
     ]
   });
 
-  const [otherState, setOtherState] = useState('some other value');
-
-  console.log(otherState, personState);
-
   const switchNameHandler = (newName) => {
     //Do not do this!!! : state.persons[0].name = 'Maximun';
     setPersonState({
@@ -40,7 +36,8 @@ function App() {
     backgroundColor: 'white',
     font: 'inherit',
     border: '1px solid blue',
-    padding: '8px'
+    padding: '8px',
+    cursor: 'pointer'
   }
 
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two. 
