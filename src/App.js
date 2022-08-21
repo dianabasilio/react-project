@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Person from "./Person/Person";
 
 function App() {
@@ -31,6 +31,13 @@ function App() {
     });
   };
 
+  const deletePersonHandler = (personIndex) => {
+    const persons = [...personState];
+    //splice, index to remove, how many to remove
+    persons.splice(personIndex, 1);
+    setPersonState(persons);
+  };
+
   const style = {
     backgroundColor: "white",
     font: "inherit",
@@ -44,8 +51,8 @@ function App() {
   if (showPerson) {
     people = (
       <div>
-        {personState.map((person) => {
-          return <Person name={person.name} age={person.age} />;
+        {personState.map((person, index) => {
+          return <Person click={() => deletePersonHandler(index)} key={person.name + index} name={person.name} age={person.age} />;
         })}
       </div>
     );
