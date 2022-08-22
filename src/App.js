@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Person from "./Person/Person";
 
 function App() {
@@ -49,9 +49,10 @@ function App() {
   };
 
   const style = {
-    backgroundColor: "white",
+    backgroundColor: "grey",
     font: "inherit",
-    border: "1px solid blue",
+    borderRadius: "20px",
+    border: "none",
     padding: "8px",
     cursor: "pointer",
   };
@@ -79,9 +80,9 @@ function App() {
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two.
   return (
     <div className="App">
-      <h1> Hi I am react app</h1>
+      <h1> User list</h1>
       <button style={style} onClick={() => togglePersonsHandler("Maximiliano")}>
-        Switch name
+        {showPerson ? "Close" : "Show"} users
       </button>
       {people}
     </div>
