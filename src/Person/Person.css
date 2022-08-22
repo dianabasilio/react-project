@@ -6,3 +6,7 @@
     border-radius: 20px;
     text-align: center;
 }
+
+.close{
+    width: fit-content;
+}

@@ -7,12 +7,13 @@ const Person = (props) =>{
     //to import react
     return (
       <div className="Person">
-        <p onClick={props.click}>
+        <div className="close" onClick={props.click}>
+          <CloseIcon />
+        </div>
+        <p>
           I'm {props.name} and I am years {props.age} old!
         </p>
-        <p>
-            {props.children}
-        </p>
+        <p>{props.children}</p>
         <input type="text" onChange={props.changed} value={props.name} />
       </div>
     );

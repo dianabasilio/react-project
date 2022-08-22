@@ -53,8 +53,9 @@ function App() {
     font: "inherit",
     borderRadius: "20px",
     border: "none",
-    padding: "8px",
+    padding: "10px",
     cursor: "pointer",
+    color: "white",
   };
 
   let people = null;
