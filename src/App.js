@@ -4,9 +4,9 @@ import Person from "./Person/Person";
 
 function App() {
   const [personState, setPersonState] = useState([
-    { name: "Max", age: 28 },
-    { name: "Manu", age: 70 },
-    { name: "Soph", age: 17 },
+    { id: 0, name: "Max", age: 28 },
+    { id: 1, name: "Manu", age: 70 },
+    { id: 2, name: "Soph", age: 17 },
   ]);
 
   const [showPerson, setShowPerson] = useState(false);
@@ -14,9 +14,9 @@ function App() {
   const togglePersonsHandler = (newName) => {
     //Do not do this!!! : state.people[0].name = 'Maximun';
     setPersonState([
-      { name: newName, age: 28 },
-      { name: "Manuel", age: 20 },
-      { name: "Sophie", age: 17 },
+      { id: 0, name: newName, age: 28 },
+      { id: 1, name: "Manuel", age: 20 },
+      { id: 2, name: "Sophie", age: 17 },
     ]);
     setShowPerson(!showPerson);
   };
@@ -24,9 +24,9 @@ function App() {
   const nameChangeHandler = (event) => {
     setPersonState({
       people: [
-        { name: "Max", age: 28 },
-        { name: event.target.value, age: 20 },
-        { name: "Sophie", age: 17 },
+        { id: 0, name: "Max", age: 28 },
+        { id: 1, name: event.target.value, age: 20 },
+        { id: 2, name: "Sophie", age: 17 },
       ],
     });
   };
@@ -52,7 +52,14 @@ function App() {
     people = (
       <div>
         {personState.map((person, index) => {
-          return <Person click={() => deletePersonHandler(index)} key={person.name + index} name={person.name} age={person.age} />;
+          return (
+            <Person
+              click={() => deletePersonHandler(index)}
+              key={person.id}
+              name={person.name}
+              age={person.age}
+            />
+          );
         })}
       </div>
     );
