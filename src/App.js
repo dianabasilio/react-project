@@ -21,14 +21,24 @@ function App() {
     setShowPerson(!showPerson);
   };
 
-  const nameChangeHandler = (event) => {
-    setPersonState({
-      people: [
-        { id: 0, name: "Max", age: 28 },
-        { id: 1, name: event.target.value, age: 20 },
-        { id: 2, name: "Sophie", age: 17 },
-      ],
+  const nameChangeHandler = (event, id) => {
+    //this will find the index where the condition is true
+    const personIndex = personState.findIndex((person) => {
+      return person.id === id;
     });
+
+    //this will get the person with that index
+    const person = { ...personState[personIndex] };
+    //otherway
+    //const person = Object.assign({}, personState[personIndex])
+
+    //this will change the person name
+    person.name = event.target.value;
+
+    const people = [...personState];
+    people[personIndex] = person;
+
+    setPersonState(people);
   };
 
   const deletePersonHandler = (personIndex) => {
@@ -58,6 +68,7 @@ function App() {
               key={person.id}
               name={person.name}
               age={person.age}
+              changed={(event) => nameChangeHandler(event, person.id)}
             />
           );
         })}
