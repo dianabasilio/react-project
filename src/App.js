@@ -76,15 +76,23 @@ function App() {
         })}
       </div>
     );
-    style.backgroundColor = 'red'
+    style.backgroundColor = "red";
   }
 
-  let classes = ['red','bold'].join(' ');
+  const classes = [];
+  if (personState.length <= 2) {
+    classes.push("red"); //classes = ['red']
+  }
+  if (personState.length <= 1) {
+    classes.push("bold");
+  }
+
+
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two.
   return (
     <div className="App">
       <h1> User list</h1>
-      <p className={classes}> text</p>
+      <p className={classes.join(' ')}> text</p>
       <button style={style} onClick={() => togglePersonsHandler("Maximiliano")}>
         {showPerson ? "Close" : "Show"} users
       </button>
