@@ -1,5 +1,6 @@
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
+import Radium from 'radium'
 import './Person.css'
 
 const Person = (props) =>{
@@ -19,4 +20,4 @@ const Person = (props) =>{
     );
 }
 
-export default Person;
+export default Radium(Person);

@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import Radium from 'radium'
 import Person from "./Person/Person";
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
     padding: "10px",
     cursor: "pointer",
     color: "white",
+    ":hover": {
+      backgroundColor: "lightgreen",
+      color: "black"
+    }
   };
 
   let people = null;
@@ -77,6 +82,10 @@ function App() {
       </div>
     );
     style.backgroundColor = "red";
+    style[":hover"] = {
+      backgroundColor: 'salmon',
+      color: 'black'
+    }
   }
 
   const classes = [];
@@ -90,6 +99,7 @@ function App() {
 
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two.
   return (
+    <styleRoot>
     <div className="App">
       <h1> User list</h1>
       <p className={classes.join(' ')}> text</p>
@@ -98,7 +108,9 @@ function App() {
       </button>
       {people}
     </div>
+    </styleRoot>
   );
 }
 
-export default App;
+//Radium is just  a component wrapping your component
+export default Radium(App);
