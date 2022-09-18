@@ -1,13 +1,17 @@
-FROM node:14
+FROM node:16-alpine
 
-WORKDIR /App
+WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3002
+ARG DEFAULT_PORT=8300
+
+ENV PORT $DEFAULT_PORT
+
+EXPOSE $PORT
 
 CMD ["npm", "start"]
