@@ -64,8 +64,6 @@ function App() {
     setPersonState(persons);
   };
 
-  const style = {};
-
   let people = null;
 
   if (showPerson) {
