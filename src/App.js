@@ -1,7 +1,22 @@
 import "./App.css";
 import React, { useState } from "react";
-import Radium from 'radium'
+import Radium from "radium";
+import styled from "styled-components";
 import Person from "./Person/Person";
+
+const StyledButton = styled.button`
+  background-color: green;
+  font: inherit;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  :hover: {
+    backgroundcolor: lightgreen;
+    color: black;
+  }
+`;
 
 function App() {
   const [personState, setPersonState] = useState([
@@ -49,19 +64,7 @@ function App() {
     setPersonState(persons);
   };
 
-  const style = {
-    backgroundColor: "green",
-    font: "inherit",
-    borderRadius: "20px",
-    border: "none",
-    padding: "10px",
-    cursor: "pointer",
-    color: "white",
-    ":hover": {
-      backgroundColor: "lightgreen",
-      color: "black"
-    }
-  };
+  const style = {};
 
   let people = null;
 
@@ -81,11 +84,11 @@ function App() {
         })}
       </div>
     );
-    style.backgroundColor = "red";
-    style[":hover"] = {
-      backgroundColor: 'salmon',
-      color: 'black'
-    }
+    //style.backgroundColor = "red";
+    //style[":hover"] = {
+      //backgroundColor: "salmon",
+      //color: "black",
+    //};
   }
 
   const classes = [];
@@ -96,18 +99,19 @@ function App() {
     classes.push("bold");
   }
 
-
   //Arrow functions are part of ES6. If you're not using ES6, then you have to bind this. That's one difference I can think of between the two.
   return (
     <styleRoot>
-    <div className="App">
-      <h1> User list</h1>
-      <p className={classes.join(' ')}> text</p>
-      <button style={style} onClick={() => togglePersonsHandler("Maximiliano")}>
-        {showPerson ? "Close" : "Show"} users
-      </button>
-      {people}
-    </div>
+      <div className="App">
+        <h1> User list</h1>
+        <p className={classes.join(" ")}> text</p>
+        <StyledButton alt={showPerson}
+          onClick={() => togglePersonsHandler("Maximiliano")}
+        >
+          {showPerson ? "Close" : "Show"} users
+        </StyledButton>
+        {people}
+      </div>
     </styleRoot>
   );
 }
